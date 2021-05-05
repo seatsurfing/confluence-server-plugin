@@ -7,6 +7,10 @@
         <param name="plugin-logo">images/pluginLogo.png</param>
     </plugin-info>
 
+    <servlet key="admin-servlet" class="de.seatsurfing.confluence.AdminServlet">
+        <url-pattern>/seatsurfing/admin</url-pattern>
+    </servlet>
+
     <!-- add our i18n resource -->
     <resource type="i18n" name="i18n" location="seatsurfing"/>
     
@@ -20,5 +24,33 @@
 
         <context>seatsurfing</context>
     </web-resource>
+
+    <web-resource key="seatsurfing-admin-ui-plugin-resources" name="seatsurfing-admin-ui-plugin Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="seatsurfing-admin-ui-plugin.css" location="/css/seatsurfing-admin-ui-plugin.css"/>
+        <resource type="download" name="seatsurfing-admin-ui-plugin.js" location="/js/seatsurfing-admin-ui-plugin.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>seatsurfing-admin-ui-plugin</context>
+    </web-resource>
+
+    <rest key="rest" path="/seatsurfing-admin" version="1.0">
+        <description>Provides REST resources for the admin UI.</description>
+    </rest>
+
+    <web-item key="conf-menu-item" name="Seatsurfing Admin" section="system.admin/configuration" weight="10">
+        <description>Seatsurfing admin page.</description>
+        <label key="seatsurfing.admin.label" />
+        <link linkId="xproduct-admin-link">/plugins/servlet/seatsurfing/admin</link>
+    </web-item>
+
+    <xhtml-macro name="seatsurfing" key="seatsurfing-macro" class="de.seatsurfing.confluence.SeatsurfingMacro">
+        <category name="external-content"/>
+        <parameters>
+            <parameter name="bookingUIURL" type="string" default="https://app.seatsurfing.de/ui/" required="true" />
+            <parameter name="sharedSecret" type="string" required="true" />
+        </parameters>
+    </xhtml-macro>
     
 </atlassian-plugin>
