@@ -8,8 +8,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public final class Config {
+  @XmlElement private String orgId;
   @XmlElement private String bookingUiUrl;
   @XmlElement private String sharedSecret;
+        
+  public String getOrgId() {
+    return orgId;
+  }
+        
+  public void setOrgId(String orgId) {
+    this.orgId = orgId;
+  }
         
   public String getBookingUiUrl() {
     return bookingUiUrl;

@@ -7,6 +7,10 @@
   <body>
     <form id="admin" class="aui">
         <div class="field-group">
+            <label for="name">Seatsurfing Instance ID:</label>
+            <input type="text" id="orgId" name="orgId" class="text">
+        </div>
+        <div class="field-group">
             <label for="name">Booking UI URL:</label>
             <input type="text" id="bookingUiUrl" name="bookingUiUrl" class="text">
         </div>

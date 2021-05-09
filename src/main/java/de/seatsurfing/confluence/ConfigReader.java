@@ -11,6 +11,7 @@ public class ConfigReader {
             public Object doInTransaction() {
                 PluginSettings settings = pluginSettingsFactory.createGlobalSettings();
                 Config config = new Config();
+                config.setOrgId((String) settings.get(Config.class.getName() + ".orgId"));
                 config.setBookingUiUrl((String) settings.get(Config.class.getName() + ".bookingUiUrl"));
                 config.setSharedSecret((String) settings.get(Config.class.getName() + ".sharedSecret"));
                 return config;

@@ -13,6 +13,7 @@
             dataType: "json"
         }).done(function (config) { // when the configuration is returned...
             // ...populate the form.
+            $("#orgId").val(config.orgId);
             $("#bookingUiUrl").val(config.bookingUiUrl);
             $("#sharedSecret").val(config.sharedSecret);
 
@@ -31,6 +32,7 @@ function updateConfig() {
         type: "PUT",
         contentType: "application/json",
         data: JSON.stringify({
+            "orgId": AJS.$("#orgId").attr("value"),
             "bookingUiUrl": AJS.$("#bookingUiUrl").attr("value"),
             "sharedSecret": AJS.$("#sharedSecret").attr("value")
         }),

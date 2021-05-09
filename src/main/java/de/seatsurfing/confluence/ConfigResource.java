@@ -47,20 +47,7 @@ public class ConfigResource
         if (username == null || !userManager.isSystemAdmin(username)) {
             return Response.status(Status.UNAUTHORIZED).build();
         }
-
         return Response.ok(ConfigReader.readConfig(transactionTemplate, pluginSettingsFactory)).build();
-
-        /*
-        return Response.ok(transactionTemplate.execute(new TransactionCallback() {
-            public Object doInTransaction() {
-                PluginSettings settings = pluginSettingsFactory.createGlobalSettings();
-                Config config = new Config();
-                config.setBookingUiUrl((String) settings.get(Config.class.getName() + ".bookingUiUrl"));
-                config.setSharedSecret((String) settings.get(Config.class.getName() + ".sharedSecret"));
-                return config;
-            }
-        })).build();
-        */
     }
 
     @PUT
@@ -74,6 +61,7 @@ public class ConfigResource
         transactionTemplate.execute(new TransactionCallback() {
             public Object doInTransaction() {
                 PluginSettings pluginSettings = pluginSettingsFactory.createGlobalSettings();
+                pluginSettings.put(Config.class.getName() + ".orgId", config.getOrgId());
                 pluginSettings.put(Config.class.getName() + ".bookingUiUrl", config.getBookingUiUrl());
                 pluginSettings.put(Config.class.getName() + ".sharedSecret", config.getSharedSecret());
                 return null;

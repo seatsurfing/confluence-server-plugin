@@ -3,6 +3,8 @@
         <description>${project.description}</description>
         <version>${project.version}</version>
         <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="vendor-logo">images/vendorLogo.jpg</param>
+        <param name="vendor-icon">images/pluginIcon.jpg</param>
         <param name="plugin-icon">images/pluginIcon.png</param>
         <param name="plugin-logo">images/pluginLogo.png</param>
     </plugin-info>
@@ -48,8 +50,6 @@
     <xhtml-macro name="seatsurfing" key="seatsurfing-macro" class="de.seatsurfing.confluence.SeatsurfingMacro">
         <category name="external-content"/>
         <parameters>
-            <parameter name="bookingUIURL" type="string" default="https://app.seatsurfing.de/ui/" required="true" />
-            <parameter name="sharedSecret" type="string" required="true" />
         </parameters>
     </xhtml-macro>
     

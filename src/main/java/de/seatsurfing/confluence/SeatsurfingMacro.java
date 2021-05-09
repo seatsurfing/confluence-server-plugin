@@ -20,6 +20,9 @@ import com.atlassian.sal.api.transaction.TransactionCallback;
 import com.atlassian.sal.api.transaction.TransactionTemplate;
 import com.atlassian.sal.api.user.UserManager;
 
+import com.atlassian.sal.api.ApplicationProperties;
+import com.atlassian.sal.api.component.ComponentLocator;
+
 @Named
 public class SeatsurfingMacro implements Macro {
     @ComponentImport
@@ -28,20 +31,23 @@ public class SeatsurfingMacro implements Macro {
     private final PluginSettingsFactory pluginSettingsFactory;
     @ComponentImport
     private final TransactionTemplate transactionTemplate;
+    @ComponentImport
+    private final ApplicationProperties applicationProperties;
 
     @Inject
     public SeatsurfingMacro(UserManager userManager, PluginSettingsFactory pluginSettingsFactory,
-                          TransactionTemplate transactionTemplate) {
+                          TransactionTemplate transactionTemplate, ApplicationProperties applicationProperties) {
         this.userManager = userManager;
         this.pluginSettingsFactory = pluginSettingsFactory;
         this.transactionTemplate = transactionTemplate;
+        this.applicationProperties = applicationProperties;
     }
 
     public String execute(Map<String, String> map, String s, ConversionContext conversionContext) throws MacroExecutionException {
         Config config = ConfigReader.readConfig(transactionTemplate, pluginSettingsFactory);
         String url = config.getBookingUiUrl();
-        if (url == null) {
-            url = "https://app.seatsurfing.de/ui/";
+        if ((url == null) || (url.trim().isEmpty())) {
+            url = "https://app.seatsurfing.de/";
         }
         if (!url.endsWith("/")) {
             url += "/";
@@ -56,7 +62,7 @@ public class SeatsurfingMacro implements Macro {
                 .withClaim("user", user.getName())
                 .withClaim("key", user.getKey().getStringValue())
                 .sign(Algorithm.HMAC256(config.getSharedSecret()));
-                url += "login/confluence/server/" + jwt;
+                url += "confluence/" + config.getOrgId() + "/" + jwt;
         }
 
         String res = "";

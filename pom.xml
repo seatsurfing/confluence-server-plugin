@@ -15,7 +15,7 @@
     </organization>
 
     <name>seatsurfing</name>
-    <description>This is the de.seatsurfing.confluence:seatsurfing plugin for Atlassian Confluence.</description>
+    <description>Free seating and co-working for your employees: Self-service seat booking with your floor plans – any time, any place.</description>
     <packaging>atlassian-plugin</packaging>
 
     <dependencies>
