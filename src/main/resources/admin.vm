@@ -5,22 +5,54 @@
     $webResourceManager.requireResource("de.seatsurfing.confluence.seatsurfing:seatsurfing-admin-ui-plugin-resources")
   </head>
   <body>
-    <form id="admin" class="aui">
-        <div class="field-group">
-            <label for="name">Seatsurfing Instance ID:</label>
-            <input type="text" id="orgId" name="orgId" class="text">
+    <div id="admin-body-content" class="with-help">
+      <div id="action-messages" style="display:none">
+        <div class="aui-message success shadowed">
+          <p class="title"><span class="aui-icon icon-success"></span></p>
+          Successfully saved the configuration
         </div>
-        <div class="field-group">
-            <label for="name">Booking UI URL:</label>
-            <input type="text" id="bookingUiUrl" name="bookingUiUrl" class="text">
+      </div>
+      <form id="admin" class="aui">
+          <div class="field-group">
+              <label for="name">Instance ID:</label>
+              <input type="text" id="orgId" name="orgId" class="text">
+          </div>
+          <div class="field-group">
+              <label for="time">Shared Secret:</label>
+              <input type="text" id="sharedSecret" name="sharedSecret" class="text">
+          </div>
+          <div class="field-group">
+              <label for="name">Backend URL:</label>
+              <input type="text" id="bookingUiUrl" name="bookingUiUrl" class="text" placeholder="https://app.seatsurfing.de/">
+          </div>
+          <div class="field-group">
+              <input type="submit" value="Save" class="button">
+          </div>
+      </form>
+      <div style="margin-top:25px">
+        <a href="https://seatsurfing.de/" target="_blank">Create a new Seatsurfing Cloud instance</a>
+      </div>
+    </div>
+    <div id="helptd">
+        <div class="help-panel">
+          <div class="help-panel-header">
+            <strong>Help Tips</strong>
+          </div>
+          <div class="help-panel-content">
+              <p>
+                This screen allows you to configure the Seatsurfing Add-On for Confluence.
+              </p>
+              <p>
+                <b>Instance ID (required):</b> The unique identifier of your Seatsurfig instance. To find this, log in to Seatsurfing's <a href="https://app.seatsurfing.de/admin/" target="_blank">Admin interface</a>, go to 'Settings' and copy the Instance ID.
+              </p>
+              <p>
+                <b>Shared Secret (required):</b> A self-chosen shared secret which is set both here and in your Seatsurfing's instance Admin interface. To set this, log in to Seatsurfing's <a href="https://app.seatsurfing.de/admin/" target="_blank">Admin interface</a> and go to 'Settings'.
+              </p>
+              <p>
+                <b>Backend URL (optional):</b> The custom URL of your Seatsurfing instance. Leave empty if you use Cloud hosting.
+              </p>
+          </div>
         </div>
-        <div class="field-group">
-            <label for="time">Shared Secret:</label>
-            <input type="text" id="sharedSecret" name="sharedSecret" class="text">
-        </div>
-        <div class="field-group">
-            <input type="submit" value="Save" class="button">
-        </div>
-    </form>
+      </div>
   </body>
 </html>

@@ -41,7 +41,7 @@
         <description>Provides REST resources for the admin UI.</description>
     </rest>
 
-    <web-item key="conf-menu-item" name="Seatsurfing Admin" section="system.admin/configuration" weight="10">
+    <web-item key="conf-menu-item" name="Seatsurfing Admin" section="system.admin/configuration" weight="100">
         <description>Seatsurfing admin page.</description>
         <label key="seatsurfing.admin.label" />
         <link linkId="xproduct-admin-link">/plugins/servlet/seatsurfing/admin</link>

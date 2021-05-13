@@ -19,6 +19,7 @@
 
             AJS.$("#admin").submit(function(e) {
                 e.preventDefault();
+                $("#action-messages").hide();
                 updateConfig();
             });
         });
@@ -36,6 +37,9 @@ function updateConfig() {
             "bookingUiUrl": AJS.$("#bookingUiUrl").attr("value"),
             "sharedSecret": AJS.$("#sharedSecret").attr("value")
         }),
-        processData: false
+        processData: false,
+        success: function() {
+            $("#action-messages").show();
+        }
     });
 }
