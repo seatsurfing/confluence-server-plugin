@@ -53,6 +53,13 @@ public class SeatsurfingMacro implements Macro {
             url += "/";
         }
 
+        if ((config.getSharedSecret() == null) ||
+            (config.getOrgId() == null) ||
+            (config.getSharedSecret().trim().isEmpty()) ||
+            (config.getOrgId().trim().isEmpty())) {
+            return "<b>Error:</b> Shared Secret and/or Instance ID are not set. Please go to the Seatsurfing Configuration page in your Confluence Settings and set it.";
+        }
+
         ConfluenceUser user = AuthenticatedUserThreadLocal.get();
         if (user == null) {
             url += "login/confluence/anonymous";
