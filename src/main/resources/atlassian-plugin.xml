@@ -7,6 +7,9 @@
         <param name="vendor-icon">images/pluginIcon.jpg</param>
         <param name="plugin-icon">images/pluginIcon.png</param>
         <param name="plugin-logo">images/pluginLogo.png</param>
+        <param name="atlassian-data-center-status">compatible</param>
+        <param name="atlassian-data-center-compatible">true</param>
+        <param name="plugin-type">both</param>
     </plugin-info>
 
     <servlet key="admin-servlet" class="de.seatsurfing.confluence.AdminServlet">
