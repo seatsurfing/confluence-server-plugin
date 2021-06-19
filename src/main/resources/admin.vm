@@ -2,7 +2,7 @@
   <head>
     <title>Seatsurfing Configuration</title>
     <meta name="decorator" content="atl.admin">
-    $webResourceManager.requireResource("de.seatsurfing.confluence.seatsurfing:seatsurfing-admin-ui-plugin-resources")
+    $webResourceManager.requireResourcesForContext("seatsurfing.adminuiplugin")
   </head>
   <body>
     <div id="admin-body-content" class="with-help">

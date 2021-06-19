@@ -32,12 +32,12 @@
 
     <web-resource key="seatsurfing-admin-ui-plugin-resources" name="seatsurfing-admin-ui-plugin Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <dependency>com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager</dependency>
         
-        <resource type="download" name="seatsurfing-admin-ui-plugin.css" location="/css/seatsurfing-admin-ui-plugin.css"/>
-        <resource type="download" name="seatsurfing-admin-ui-plugin.js" location="/js/seatsurfing-admin-ui-plugin.js"/>
-        <resource type="download" name="images/" location="/images"/>
+        <resource type="download" name="seatsurfing-admin-ui-plugin.css" location="css/seatsurfing-admin-ui-plugin.css"/>
+        <resource type="download" name="seatsurfing-admin-ui-plugin.js" location="js/seatsurfing-admin-ui-plugin.js"/>
 
-        <context>seatsurfing-admin-ui-plugin</context>
+        <context>seatsurfing.adminuiplugin</context>
     </web-resource>
 
     <rest key="rest" path="/seatsurfing-admin" version="1.0">
