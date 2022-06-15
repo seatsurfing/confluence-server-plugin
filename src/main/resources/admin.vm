@@ -23,14 +23,14 @@
           </div>
           <div class="field-group">
               <label for="name">Backend URL:</label>
-              <input type="text" id="bookingUiUrl" name="bookingUiUrl" class="text" placeholder="https://app.seatsurfing.de/">
+              <input type="text" id="bookingUiUrl" name="bookingUiUrl" class="text" placeholder="https://app.seatsurfing.app/">
           </div>
           <div class="field-group">
               <input type="submit" value="Save" class="button">
           </div>
       </form>
       <div style="margin-top:25px">
-        <a href="https://seatsurfing.de/" target="_blank">Create a new Seatsurfing Cloud instance</a>
+        <a href="https://seatsurfing.app/" target="_blank">Create a new Seatsurfing Cloud instance</a>
       </div>
     </div>
     <div id="helptd">
@@ -43,10 +43,10 @@
                 This screen allows you to configure the Seatsurfing Add-On for Confluence.
               </p>
               <p>
-                <b>Instance ID (required):</b> The unique identifier of your Seatsurfig instance. To find this, log in to Seatsurfing's <a href="https://app.seatsurfing.de/admin/" target="_blank">Admin interface</a>, go to 'Settings' and copy the Instance ID.
+                <b>Instance ID (required):</b> The unique identifier of your Seatsurfig instance. To find this, log in to Seatsurfing's <a href="https://app.seatsurfing.app/admin/" target="_blank">Admin interface</a>, go to 'Settings' and copy the Instance ID.
               </p>
               <p>
-                <b>Shared Secret (required):</b> A self-chosen shared secret which is set both here and in your Seatsurfing's instance Admin interface. To set this, log in to Seatsurfing's <a href="https://app.seatsurfing.de/admin/" target="_blank">Admin interface</a> and go to 'Settings'.
+                <b>Shared Secret (required):</b> A self-chosen shared secret which is set both here and in your Seatsurfing's instance Admin interface. To set this, log in to Seatsurfing's <a href="https://app.seatsurfing.app/admin/" target="_blank">Admin interface</a> and go to 'Settings'.
               </p>
               <p>
                 <b>Backend URL (optional):</b> The custom URL of your Seatsurfing instance. Leave empty if you use Cloud hosting.

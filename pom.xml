@@ -5,17 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.seatsurfing.confluence</groupId>
     <artifactId>seatsurfing</artifactId>
-    <version>1.0.8-SNAPSHOT</version>
+    <version>1.0.9-SNAPSHOT</version>
 
     <organization>
-        <name>weweave UG (limited liability)</name>
-        <url>https://seatsurfing.de/</url>
+        <name>Seatsurfing.app</name>
+        <url>https://seatsurfing.app/</url>
     </organization>
 
     <scm>
-        <connection>scm:git:https://gitlab.com/seatsurfing/confluence-server-plugin.git</connection>
-        <developerConnection>scm:git:git@gitlab.com:seatsurfing/confluence-server-plugin.git</developerConnection>
-        <url>https://gitlab.com/seatsurfing/confluence-server-plugin</url>
+        <connection>scm:git:https://github.com/seatsurfing/confluence-server-plugin.git</connection>
+        <url>https://github.com/seatsurfing/confluence-server-plugin</url>
         <tag>seatsurfing-1.0.0</tag>
     </scm>
 
@@ -53,7 +52,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.10</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -65,12 +64,12 @@
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
-            <version>3.15.0</version>
+            <version>3.18.2</version>
         </dependency>
         <dependency>
             <groupId>com.atlassian.sal</groupId>
             <artifactId>sal-api</artifactId>
-            <version>4.1.0</version>
+            <version>4.7.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -88,7 +87,7 @@
         <dependency>
             <groupId>com.atlassian.templaterenderer</groupId>
             <artifactId>atlassian-template-renderer-api</artifactId>
-            <version>4.1.0</version>
+            <version>4.2.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -135,6 +134,7 @@
                     <allowGoogleTracking>false</allowGoogleTracking>
                     <productVersion>${confluence.version}</productVersion>
                     <productDataVersion>${confluence.data.version}</productDataVersion>
+                    <jvmArgs>-Xms1024m -Xmx1024m</jvmArgs>
                     <enableQuickReload>true</enableQuickReload>
 
                     <!-- See here for an explanation of default instructions: -->
@@ -179,11 +179,11 @@
     </build>
 
     <properties>
-        <confluence.version>6.14.0</confluence.version>
-        <confluence.data.version>6.14.0</confluence.data.version>
+        <confluence.version>7.17.2</confluence.version>
+        <confluence.data.version>7.17.2</confluence.data.version>
         <amps.version>8.1.2</amps.version>
         <plugin.testrunner.version>2.0.2</plugin.testrunner.version>
-        <atlassian.spring.scanner.version>2.1.7</atlassian.spring.scanner.version>
+        <atlassian.spring.scanner.version>2.2.2</atlassian.spring.scanner.version>
         <!-- This property ensures consistency between the key in atlassian-plugin.xml and the OSGi bundle's key. -->
         <atlassian.plugin.key>confluence-seatsurfing</atlassian.plugin.key>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

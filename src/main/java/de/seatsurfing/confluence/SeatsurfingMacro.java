@@ -47,7 +47,7 @@ public class SeatsurfingMacro implements Macro {
         Config config = ConfigReader.readConfig(transactionTemplate, pluginSettingsFactory);
         String url = config.getBookingUiUrl();
         if ((url == null) || (url.trim().isEmpty())) {
-            url = "https://app.seatsurfing.de/";
+            url = "https://app.seatsurfing.app/";
         }
         if (!url.endsWith("/")) {
             url += "/";
@@ -64,9 +64,13 @@ public class SeatsurfingMacro implements Macro {
         if (user == null) {
             url += "login/confluence/anonymous";
         } else {
+            String userName = user.getEmail();
+            if ((userName == null) || (userName.trim().equals(""))) {
+                userName = user.getName();
+            }
             String jwt = JWT
                 .create()
-                .withClaim("user", user.getName())
+                .withClaim("user", userName)
                 .withClaim("key", user.getKey().getStringValue())
                 .sign(Algorithm.HMAC256(config.getSharedSecret()));
                 url += "confluence/" + config.getOrgId() + "/" + jwt;
