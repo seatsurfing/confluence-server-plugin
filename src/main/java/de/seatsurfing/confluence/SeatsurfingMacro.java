@@ -77,7 +77,7 @@ public class SeatsurfingMacro implements Macro {
         }
 
         String res = "";
-        res += "<iframe width=\"100%\" height=\"500px\" src=\""+url+"\" frameborder=\"0\">";
+        res += "<iframe width=\"100%\" height=\"600px\" src=\""+url+"\" frameborder=\"0\">";
         res += "</iframe>";
         return res;
     }
